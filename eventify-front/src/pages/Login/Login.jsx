@@ -27,4 +27,6 @@ const Login = () => {
         setPassword={setPassword}>
         </Form>
     );
-  };
+};
+
+export default Login;
