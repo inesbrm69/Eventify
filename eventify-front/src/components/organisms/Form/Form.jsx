@@ -1,29 +1,29 @@
-import React, { useState, useNavigate } from 'react';
-import { Champ } from '../../molecules/index';
+import React from "react";
+import { Champ } from "../../molecules/index";
+import { Button } from "../../atoms/index";
 
-const Form = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    
+const Form = ({ onSubmit, email, setEmail, password, setPassword }) => {
     return (
-        <div className="">
-            <Champ
-            text="Email"
-            type="email"
-            className="px-7 py-2"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            />
-            
-            <Champ
-            text="Password"
-            type="password"
-            className="px-7 py-2"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            />
+        <div className="flex flex-col justify-center items-center w-screen h-screen">
+            <form onSubmit={onSubmit} className="flex flex-col gap-4">
+                <Champ
+                    text="Email"
+                    type="email"
+                    className="px-7 py-2"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                
+                <Champ
+                    text="Mot de passe"
+                    type="password"
+                    className="px-7 py-2"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                
+                <Button type="submit">Connexion</Button>
+            </form>
         </div>
     );
 };
