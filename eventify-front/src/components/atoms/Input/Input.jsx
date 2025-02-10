@@ -1,21 +1,13 @@
 import React, { useState } from 'react';
 
-const Input = ({ type, placeholder, className, icon }) => {
+const Input = ({ type, placeholder }) => {
     return (
-        <div className="relative flex items-center">
-            {icon && (
-                <img
-                    src={icon}
-                    alt="icon"
-                    className="absolute left-5 h-7 w-7"
-                />
-            )}
+        <div>
             <input
             type={type}
             placeholder={placeholder}
-            className={`ml-7 py-2 border-b-2 font-poppins focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-opacity-50 ${className}`}/>
+            className={`ml-7 py-2 border-b-2 border-primary-500 text-primary-500 font-poppins text-subtitle`}/>
         </div>
-        
     );
 }
 

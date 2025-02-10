@@ -6,10 +6,11 @@ const Form = () => {
     const [password, setPassword] = useState("");
     
     return (
-        <div className="flex items-center justify-center h-screen bg-gray-100">
+        <div className="">
             <Champ
             text="Email"
             type="email"
+            className="px-7 py-2"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -18,6 +19,7 @@ const Form = () => {
             <Champ
             text="Password"
             type="password"
+            className="px-7 py-2"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

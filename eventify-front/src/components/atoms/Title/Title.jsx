@@ -2,9 +2,12 @@ import React from 'react';
 
 const Title = ({ text = "", ...props })  => {
   return (
-    <h1 className='' {...props}>
-      {props.children}
-    </h1>
+    <div>
+      <h3 {...props}>
+        {props.children}
+      </h3>
+    </div>
+    
   );
 }
 
