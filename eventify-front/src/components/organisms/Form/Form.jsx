@@ -7,22 +7,24 @@ const Form = ({ onSubmit, email, setEmail, password, setPassword }) => {
         <div className="flex flex-col justify-center items-center w-screen h-screen">
             <form onSubmit={onSubmit} className="flex flex-col gap-4">
                 <Champ
+                    id="email"
                     text="Email"
                     type="email"
-                    className="px-7 py-2"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
                 
                 <Champ
+                    id="password"
                     text="Mot de passe"
                     type="password"
-                    className="px-7 py-2"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 
-                <Button type="submit">Connexion</Button>
+                <Button type="submit" className="bg-blue-500 text-white p-2 rounded">
+                    Connexion
+                </Button>
             </form>
         </div>
     );

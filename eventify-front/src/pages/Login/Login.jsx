@@ -15,8 +15,10 @@ const Login = () => {
     return (
         <Form 
             onSubmit={handleSubmit} 
-            email={email} setEmail={setEmail} 
-            password={password} setPassword={setPassword}
+            email={email} 
+            setEmail={setEmail} 
+            password={password} 
+            setPassword={setPassword}
         />
     );
 };
