@@ -6,12 +6,10 @@ const Events = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:3001/events")
-            .then((response) => response.json())
-            .then((data) => {
-                setEvents(data);
-                setLoading(false);
-            });
+        // Récupérer les événements depuis le localStorage
+        const storedEvents = JSON.parse(localStorage.getItem("events")) || [];
+        setEvents(storedEvents);
+        setLoading(false);
     }, []);
 
     return (
@@ -25,6 +23,8 @@ const Events = () => {
                         title={event.title}
                         description={event.description}
                         date={event.date}
+                        category={event.category}
+                        localisation={event.localisation}
                         image={event.image}
                         className="m-4"
                     />

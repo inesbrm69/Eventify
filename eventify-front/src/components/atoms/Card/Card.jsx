@@ -1,10 +1,10 @@
 import React from "react";
 
-const Card = ({ backgroundColor="rgba(90,145,249,0.25)", ...props }) => {
+const Card = ({className = "", children, ...props }) => {
     return (
-        <div style={{backgroundColor:backgroundColor}}>
-            <div className={`bg-white shadow-md rounded-lg p-6`}>
-                {props.children || "Cette card n'a pas de contenu"}
+        <div className={`p-4 rounded-lg ${className}`} {...props}>
+            <div className="bg-white shadow-md rounded-lg p-6">
+                {children || "Cette card n'a pas de contenu"}
             </div>
         </div>
     );
