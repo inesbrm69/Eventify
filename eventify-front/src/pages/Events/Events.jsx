@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { Event } from "../../components/organisms";
+import { getAllEvents } from '../../services/api';
 
 const Events = () => {
     const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Récupérer les événements depuis le localStorage
-        const storedEvents = JSON.parse(localStorage.getItem("events")) || [];
-        setEvents(storedEvents);
-        setLoading(false);
-    }, []);
+        getAllEvents()
+            .then((allEvents) => {
+                setEvents(allEvents);
+                setLoading(false);
+            })
+            .catch((error) => {
+                console.error("Erreur lors de la récupération des événements :", error);
+                setLoading(false);
+            });
+      }, []);
 
     return (
         <div className="flex flex-wrap justify-center">
