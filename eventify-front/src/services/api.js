@@ -33,7 +33,12 @@ export const getAllEvents = async () => {
         const response = await api.get('/events'); 
         const categories = response.data;
 
-        const allEvents = Object.values(categories).flatMap((category) => category.items);
+        const allEvents = Object.entries(categories).flatMap(([key, categoryData]) => 
+            categoryData.items.map(event => ({
+                ...event,
+                category: categoryData.category || key
+            }))
+        );
 
         return allEvents;
     } catch (error) {
@@ -41,6 +46,7 @@ export const getAllEvents = async () => {
         throw error;
     }
 };
+
 
 
 //Users
