@@ -47,11 +47,34 @@ export const getAllEvents = async () => {
     }
 };
 
+export const getEvent = async (eventId) => {
+    const response = await api.get(`/events/${eventId}`);
+    return response.data;
+};
 
 
-//Users
-export const getUsers = () => api.get('/profiles');
+export const addUserIntoEvents = async (eventId) => {
+    try {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user) throw new Error("Aucun utilisateur connecté.");
+
+        const eventResponse = await api.get(`/events/${eventId}`);
+        const event = eventResponse.data;
+
+        const participants = event.participants || [];
+        if (!participants.includes(user.id)) {
+            participants.push(user.id);
+        }
+
+        const updatedEvent = { ...event, participants };
+        const response = await api.patch(`/events/${eventId}`, updatedEvent);
+
+        return response.data;
+    } catch (error) {
+        console.error("Erreur lors de l'inscription à l'événement :", error);
+        throw error;
+    }
+};
 
 //Events
 export const getEventByCategorie = (id) => api.get(`/events/categ/${id}`);
-export const getEvent = (id) => api.get(`/events/${id}`);
