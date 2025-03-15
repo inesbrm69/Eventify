@@ -52,6 +52,29 @@ export const getEvent = async (eventId) => {
     return response.data;
 };
 
+export const searchEvents = async (searchTerm, category) => {
+    try {
+        const allEvents = await getAllEvents();
+
+        let filteredEvents = allEvents;
+
+        if (searchTerm) {
+            filteredEvents = filteredEvents.filter(event =>
+                event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                event.description.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+        }
+
+        if (category) {
+            filteredEvents = filteredEvents.filter(event => event.category.toLowerCase() === category.toLowerCase());
+        }
+
+        return filteredEvents;
+    } catch (error) {
+        console.error("Erreur lors du filtrage des événements :", error);
+        throw error;
+    }
+};
 
 export const addUserIntoEvents = async (eventId) => {
     try {
