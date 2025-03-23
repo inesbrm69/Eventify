@@ -1,94 +1,82 @@
 import axios from 'axios';
 
 const api = axios.create({
-baseURL: 'http://localhost:3000/'
+  baseURL: 'http://localhost:3000/'
 });
 
+//
+// Login
+//
 export const login = async (email, password) => {
-    try {
-        const response = await api.get('/profiles'); 
-        const users = response.data;
-        const user = users.find(u => u.email === email && u.password === password);
+  try {
+    const response = await api.get('/profiles');
+    const users = response.data;
+    const user = users.find(u => u.email === email && u.password === password);
 
-        if (!user) {
-        return { success: false, error: 'Email ou mot de passe incorrect' };
-        }
-
-        const token = btoa(JSON.stringify(user));
-        localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(user));
-        
-        return { success: true, user };
-
-    } catch (error) {
-        return { 
-            success: false, 
-            error: error.response?.data?.message || 'Erreur de connexion' 
-        };
+    if (!user) {
+      return { success: false, error: 'Email ou mot de passe incorrect' };
     }
+
+    const token = btoa(JSON.stringify(user));
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+
+    return { success: true, user };
+  } catch (error) {
+    return {
+      success: false,
+      error: error.response?.data?.message || 'Erreur de connexion'
+    };
+  }
 };
 
+//
+// Récupérer tous les événements
+//
 export const getAllEvents = async () => {
     try {
         const response = await api.get('/events'); 
-        const categories = response.data;
-
-        const allEvents = Object.entries(categories).flatMap(([key, categoryData]) => 
-            categoryData.items.map(event => ({
-                ...event,
-                category: categoryData.category || key
-            }))
-        );
-
-        return allEvents;
+        return response.data;
     } catch (error) {
         console.error('Erreur lors de la récupération des événements :', error);
         throw error;
     }
 };
 
+//
+// Récupérer un seul événement par ID
+//
 export const getEvent = async (eventId) => {
-    try {
-        const response = await api.get('/events'); // Récupère toutes les catégories
-        const categories = response.data;
-
-        let foundEvent = null;
-        let categoryKey = null;
-
-        Object.entries(categories).forEach(([key, category]) => {
-            const event = category.items.find(e => e.id === parseInt(eventId));
-            if (event) {
-                foundEvent = event;
-                categoryKey = key; // Sauvegarde la catégorie où il se trouve
-            }
-        });
-
-        if (!foundEvent) {
-            throw new Error("Événement non trouvé !");
-        }
-
-        return { event: foundEvent, category: categoryKey };
-    } catch (error) {
-        console.error("Erreur lors de la récupération de l'événement :", error);
-        throw error;
-    }
+  try {
+    const response = await api.get(`/events/${eventId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erreur lors de la récupération de l'événement :", error);
+    throw error;
+  }
 };
 
+//
+// Recherche par mot-clé et/ou catégorie
+//
 export const searchEvents = async (searchTerm, category) => {
     try {
-        const allEvents = await getAllEvents();
+        const allEvents = await getAllEvents(); // tableau [{...}, {...}]
 
         let filteredEvents = allEvents;
 
         if (searchTerm) {
             filteredEvents = filteredEvents.filter(event =>
-                event.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                event.description.toLowerCase().includes(searchTerm.toLowerCase())
+                event.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                event.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                event.localisation?.toLowerCase().includes(searchTerm.toLowerCase())
             );
         }
 
-        if (category) {
-            filteredEvents = filteredEvents.filter(event => event.category.toLowerCase() === category.toLowerCase());
+        if (category && category !== "") {
+            filteredEvents = filteredEvents.filter(event =>
+                (event.category || "").toLowerCase() === category.toLowerCase()
+            );
         }
 
         return filteredEvents;
@@ -98,45 +86,48 @@ export const searchEvents = async (searchTerm, category) => {
     }
 };
 
+
+//
+// S'inscrire / se désinscrire d'un événement
+//
 export const toggleUserEvent = async (eventId) => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) throw new Error("Utilisateur non connecté");
+    try {
+        const user = JSON.parse(localStorage.getItem("user"));
+        if (!user) throw new Error("Utilisateur non connecté");
 
-    const response = await api.get('/events');
-    const eventsData = response.data;
+        const userId = String(user.id);
 
-    for (const key in eventsData) {
-        const category = eventsData[key];
-        const index = category.items.findIndex(event => event.id === eventId);
+        // Récupère l'événement unique
+        const { data: event } = await api.get(`/events/${eventId}`);
 
-        if (index !== -1) {
-            const event = category.items[index];
+        // Met à jour les participants
+        let updatedParticipants = [...(event.participants || [])];
 
-            // 🔐 Sécurité : on force la comparaison en string
-            const userId = String(user.id);
-            let updatedParticipants = [...(event.participants || [])];
-
-            if (updatedParticipants.includes(userId)) {
-                // Désinscription
-                updatedParticipants = updatedParticipants.filter(id => id !== userId);
-            } else {
-                // Inscription
-                updatedParticipants.push(userId);
-            }
-
-            // ✏️ Mise à jour de l’événement
-            const updatedEvent = {
-                ...event,
-                participants: updatedParticipants
-            };
-
-            // 🧠 Tu n’as pas de vrai backend → on retourne l’objet modifié
-            return updatedEvent;
+        if (updatedParticipants.includes(userId)) {
+            updatedParticipants = updatedParticipants.filter(id => id !== userId);
+        } else {
+            updatedParticipants.push(userId);
         }
+
+        const updatedEvent = { ...event, participants: updatedParticipants };
+
+        const res = await api.patch(`/events/${eventId}`, updatedEvent);
+        return res.data;
+
+    } catch (error) {
+        throw new Error("Erreur lors de la mise à jour.");
     }
+};  
 
-    throw new Error("Événement introuvable");
+//
+// Obtenir tous les événements d'une catégorie
+//
+export const getEventByCategorie = async (categoryName) => {
+  try {
+    const allEvents = await getAllEvents();
+    return allEvents.filter(event => event.category.toLowerCase() === categoryName.toLowerCase());
+  } catch (error) {
+    console.error("Erreur lors du filtrage par catégorie :", error);
+    throw error;
+  }
 };
-
-//Events
-export const getEventByCategorie = (id) => api.get(`/events/categ/${id}`);

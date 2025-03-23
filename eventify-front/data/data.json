@@ -214,7 +214,8 @@
       "date": "2025-07-15",
       "localisation": "Bordeaux",
       "image": "../src/assets/concert2.jpg",
-      "participants": []
+      "participants": [],
+      "category": "Concert"
     },
     {
       "id": 21,
@@ -403,7 +404,8 @@
       "date": "2025-06-15",
       "localisation": "Paris",
       "image": "../src/assets/sport1.jpg",
-      "participants": []
+      "participants": [],
+      "category": "Sport"
     },
     {
       "id": 41,
@@ -412,7 +414,8 @@
       "date": "2025-09-10",
       "localisation": "Marseille",
       "image": "../src/assets/sport2.jpg",
-      "participants": []
+      "participants": [],
+      "category": "Sport"
     },
     {
       "id": 42,
@@ -421,7 +424,8 @@
       "date": "2025-06-20",
       "localisation": "Paris",
       "image": "../src/assets/theatre1.jpg",
-      "participants": []
+      "participants": [],
+      "category": "Théâtre"
     },
     {
       "id": 43,
@@ -430,7 +434,8 @@
       "date": "2025-07-15",
       "localisation": "Lyon",
       "image": "../src/assets/theatre2.jpg",
-      "participants": []
+      "participants": [],
+      "category": "Théâtre"
     },
     {
       "id": 44,
@@ -439,7 +444,8 @@
       "date": "2025-08-25",
       "localisation": "Marseille",
       "image": "../src/assets/theatre3.jpg",
-      "participants": []
+      "participants": [],
+      "category": "Théâtre"
     }
   ]
 }
