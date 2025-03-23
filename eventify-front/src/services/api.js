@@ -48,8 +48,30 @@ export const getAllEvents = async () => {
 };
 
 export const getEvent = async (eventId) => {
-    const response = await api.get(`/events/${eventId}`);
-    return response.data;
+    try {
+        const response = await api.get('/events'); // Récupère toutes les catégories
+        const categories = response.data;
+
+        let foundEvent = null;
+        let categoryKey = null;
+
+        Object.entries(categories).forEach(([key, category]) => {
+            const event = category.items.find(e => e.id === parseInt(eventId));
+            if (event) {
+                foundEvent = event;
+                categoryKey = key; // Sauvegarde la catégorie où il se trouve
+            }
+        });
+
+        if (!foundEvent) {
+            throw new Error("Événement non trouvé !");
+        }
+
+        return { event: foundEvent, category: categoryKey };
+    } catch (error) {
+        console.error("Erreur lors de la récupération de l'événement :", error);
+        throw error;
+    }
 };
 
 export const searchEvents = async (searchTerm, category) => {
@@ -76,27 +98,44 @@ export const searchEvents = async (searchTerm, category) => {
     }
 };
 
-export const addUserIntoEvents = async (eventId) => {
-    try {
-        const user = JSON.parse(localStorage.getItem("user"));
-        if (!user) throw new Error("Aucun utilisateur connecté.");
+export const toggleUserEvent = async (eventId) => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) throw new Error("Utilisateur non connecté");
 
-        const eventResponse = await api.get(`/events/${eventId}`);
-        const event = eventResponse.data;
+    const response = await api.get('/events');
+    const eventsData = response.data;
 
-        const participants = event.participants || [];
-        if (!participants.includes(user.id)) {
-            participants.push(user.id);
+    for (const key in eventsData) {
+        const category = eventsData[key];
+        const index = category.items.findIndex(event => event.id === eventId);
+
+        if (index !== -1) {
+            const event = category.items[index];
+
+            // 🔐 Sécurité : on force la comparaison en string
+            const userId = String(user.id);
+            let updatedParticipants = [...(event.participants || [])];
+
+            if (updatedParticipants.includes(userId)) {
+                // Désinscription
+                updatedParticipants = updatedParticipants.filter(id => id !== userId);
+            } else {
+                // Inscription
+                updatedParticipants.push(userId);
+            }
+
+            // ✏️ Mise à jour de l’événement
+            const updatedEvent = {
+                ...event,
+                participants: updatedParticipants
+            };
+
+            // 🧠 Tu n’as pas de vrai backend → on retourne l’objet modifié
+            return updatedEvent;
         }
-
-        const updatedEvent = { ...event, participants };
-        const response = await api.patch(`/events/${eventId}`, updatedEvent);
-
-        return response.data;
-    } catch (error) {
-        console.error("Erreur lors de l'inscription à l'événement :", error);
-        throw error;
     }
+
+    throw new Error("Événement introuvable");
 };
 
 //Events

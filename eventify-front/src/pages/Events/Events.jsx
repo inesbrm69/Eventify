@@ -22,15 +22,12 @@ const Events = () => {
             });
     }, []);
 
-    // 🎯 Mettre à jour la liste des événements lorsqu'un filtre est modifié
+    // Mettre à jour la liste des événements lorsqu'un filtre est modifié
     useEffect(() => {
         searchEvents(searchTerm, selectedCategory)
             .then(setFilteredEvents)
             .catch((error) => console.error("Erreur lors de la recherche :", error));
     }, [searchTerm, selectedCategory]);
-
-    // 📂 Extraire toutes les catégories uniques pour les options du filtre
-    const categories = [...new Set(events.map(event => event.category))];
 
     return (
         <div className="p-4">
@@ -39,7 +36,7 @@ const Events = () => {
                 setSearchTerm={setSearchTerm} 
                 selectedCategory={selectedCategory} 
                 setSelectedCategory={setSelectedCategory} 
-                categories={categories} 
+                categories={[...new Set(events.map(event => event.category))]} 
             />
             
             <div className="flex flex-wrap justify-center">
@@ -56,7 +53,8 @@ const Events = () => {
                             category={event.category}
                             localisation={event.localisation}
                             image={event.image}
-                            className="m-4"
+                            events={events}  // Passe bien events
+                            setEvents={setEvents}  // Passe bien setEvents
                         />
                     ))
                 ) : (
