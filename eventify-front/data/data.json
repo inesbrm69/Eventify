@@ -16,462 +16,430 @@
       "password": "user123"
     }
   ],
-  "events": {
-    "art": {
+  "events": [
+    {
       "id": 1,
-      "category": "Art",
-      "items": [
-        {
-          "id": 1,
-          "title": "Atelier de Peinture",
-          "description": "Venez explorer votre créativité dans cet atelier de peinture.",
-          "date": "2025-03-10",
-          "localisation": "Paris",
-          "image": "../src/assets/art1.jpg",
-          "participants": [
-            "1"
-          ]
-        },
-        {
-          "id": 2,
-          "title": "Galerie Moderne",
-          "description": "Une exposition captivante d'art moderne.",
-          "date": "2025-04-15",
-          "localisation": "Lyon",
-          "image": "../src/assets/art2.jpg",
-          "participants": [
-            "1"
-          ]
-        },
-        {
-          "id": 3,
-          "title": "Peintures Classiques",
-          "description": "Découvrez des chefs-d'œuvre classiques dans une ambiance unique.",
-          "date": "2025-05-05",
-          "localisation": "Marseille",
-          "image": "../src/assets/art3.jpg",
-          "participants": [
-            "1"
-          ]
-        },
-        {
-          "id": 4,
-          "title": "Art Digital",
-          "description": "Plongez dans l'univers fascinant de l'art numérique.",
-          "date": "2025-06-20",
-          "localisation": "Nice",
-          "image": "../src/assets/art4.jpg",
-          "participants": []
-        },
-        {
-          "id": 5,
-          "title": "Exposition Van Gogh",
-          "description": "Un voyage immersif dans l'œuvre de Van Gogh.",
-          "date": "2025-07-10",
-          "localisation": "Bordeaux",
-          "image": "../src/assets/art5.jpg",
-          "participants": []
-        },
-        {
-          "id": 6,
-          "title": "Soirée Interactive",
-          "description": "Participez à une soirée d'art interactif.",
-          "date": "2025-08-05",
-          "localisation": "Toulouse",
-          "image": "../src/assets/art6.jpg",
-          "participants": []
-        },
-        {
-          "id": 7,
-          "title": "Art et Lumière",
-          "description": "Une exposition d'art lumineux et coloré.",
-          "date": "2025-09-15",
-          "localisation": "Strasbourg",
-          "image": "../src/assets/art7.jpg",
-          "participants": []
-        },
-        {
-          "id": 8,
-          "title": "Atelier de Sculpture",
-          "description": "Venez créer votre propre sculpture dans cet atelier.",
-          "date": "2025-10-10",
-          "localisation": "Nantes",
-          "image": "../src/assets/art8.jpg",
-          "participants": []
-        },
-        {
-          "id": 9,
-          "title": "Exposition de Photographie",
-          "description": "Découvrez des photographies uniques et inspirantes.",
-          "date": "2025-11-05",
-          "localisation": "Montpellier",
-          "image": "../src/assets/art9.jpg",
-          "participants": []
-        }
-      ]
+      "title": "Atelier de Peinture",
+      "description": "Venez explorer votre créativité dans cet atelier de peinture.",
+      "date": "2025-03-10",
+      "localisation": "Paris",
+      "image": "../src/assets/art1.jpg",
+      "participants": ["1"],
+      "category": "Art"
     },
-    "cinema": {
+    {
       "id": 2,
-      "category": "Art",
-      "items": [
-        {
-          "id": 10,
-          "title": "Exposition d'Affiches de Films Cultes",
-          "description": "Découvrez une collection exclusive d'affiches iconiques de films cultes.",
-          "date": "2025-02-20",
-          "localisation": "Paris",
-          "image": "../src/assets/cinema1.jpg",
-          "participants": []
-        },
-        {
-          "id": 11,
-          "title": "Soirée Films Classiques",
-          "description": "Une soirée dédiée aux classiques intemporels du cinéma.",
-          "date": "2025-03-05",
-          "localisation": "Lyon",
-          "image": "../src/assets/cinema2.jpg",
-          "participants": []
-        },
-        {
-          "id": 12,
-          "title": "Projection et Débat : Cinéma Moderne",
-          "description": "Participez à la projection d'un film moderne suivi d'un débat avec des experts.",
-          "date": "2025-04-15",
-          "localisation": "Marseille",
-          "image": "../src/assets/cinema3.jpg",
-          "participants": []
-        },
-        {
-          "id": 13,
-          "title": "Festival du Film Indépendant",
-          "description": "Un festival célébrant les films indépendants de réalisateurs émergents.",
-          "date": "2025-05-10",
-          "localisation": "Bordeaux",
-          "image": "../src/assets/cinema2.jpg",
-          "participants": []
-        },
-        {
-          "id": 14,
-          "title": "Soirée Oscar : Projection des Gagnants",
-          "description": "Une soirée spéciale pour découvrir les films gagnants des Oscars.",
-          "date": "2025-06-25",
-          "localisation": "Nice",
-          "image": "../src/assets/cinema1.jpg",
-          "participants": []
-        },
-        {
-          "id": 15,
-          "title": "Marathon de Films de Science-Fiction",
-          "description": "Préparez-vous à plonger dans l'univers fascinant des films de science-fiction.",
-          "date": "2025-07-15",
-          "localisation": "Toulouse",
-          "image": "../src/assets/cinema3.jpg",
-          "participants": []
-        }
-      ]
+      "title": "Galerie Moderne",
+      "description": "Une exposition captivante d'art moderne.",
+      "date": "2025-04-15",
+      "localisation": "Lyon",
+      "image": "../src/assets/art2.jpg",
+      "participants": ["1"],
+      "category": "Art"
     },
-    "music": {
+    {
       "id": 3,
-      "category": "Concert",
-      "items": [
-        {
-          "id": 16,
-          "title": "Concert Électrique",
-          "description": "Venez vibrer au rythme de musiques électrisantes et d'effets lumineux époustouflants.",
-          "date": "2025-03-15",
-          "localisation": "Paris",
-          "image": "../src/assets/concert1.jpg",
-          "participants": []
-        },
-        {
-          "id": 17,
-          "title": "Soirée Pop Culture",
-          "description": "Un concert dédié aux stars de la pop avec une ambiance festive et spectaculaire.",
-          "date": "2025-04-10",
-          "localisation": "Lyon",
-          "image": "../src/assets/concert2.jpg",
-          "participants": []
-        },
-        {
-          "id": 18,
-          "title": "Performance Live Éblouissante",
-          "description": "Un show inoubliable avec une scénographie de rêve et des artistes de renom.",
-          "date": "2025-05-20",
-          "localisation": "Marseille",
-          "image": "../src/assets/concert3.jpg",
-          "participants": []
-        },
-        {
-          "id": 19,
-          "title": "Nuit des Étoiles Musicales",
-          "description": "Un événement musical unique mettant en lumière les plus grands talents.",
-          "date": "2025-06-05",
-          "localisation": "Nice",
-          "image": "../src/assets/concert1.jpg",
-          "participants": []
-        },
-        {
-          "id": 20,
-          "title": "Festival de Musique Électronique",
-          "description": "Plongez dans une expérience sonore et visuelle unique avec les meilleurs DJs.",
-          "date": "2025-07-15",
-          "localisation": "Bordeaux",
-          "image": "../src/assets/concert2.jpg",
-          "participants": []
-        },
-        {
-          "id": 21,
-          "title": "Pop Night Extravaganza",
-          "description": "Assistez à une nuit mémorable avec les plus grands hits pop joués en live.",
-          "date": "2025-08-25",
-          "localisation": "Strasbourg",
-          "image": "../src/assets/concert3.jpg",
-          "participants": []
-        }
-      ]
+      "title": "Peintures Classiques",
+      "description": "Découvrez des chefs-d'œuvre classiques dans une ambiance unique.",
+      "date": "2025-05-05",
+      "localisation": "Marseille",
+      "image": "../src/assets/art3.jpg",
+      "participants": ["1"],
+      "category": "Art"
     },
-    "conference": {
+    {
       "id": 4,
-      "category": "Conférence",
-      "items": [
-        {
-          "id": 22,
-          "title": "Conférence Leadership",
-          "description": "Apprenez les compétences clés pour devenir un leader inspirant.",
-          "date": "2025-03-25",
-          "localisation": "Paris",
-          "image": "../src/assets/conference1.jpg",
-          "participants": []
-        },
-        {
-          "id": 23,
-          "title": "Conférence Développement Personnel",
-          "description": "Un événement pour maximiser votre potentiel et atteindre vos objectifs.",
-          "date": "2025-04-15",
-          "localisation": "Lyon",
-          "image": "../src/assets/conference2.jpg",
-          "participants": []
-        },
-        {
-          "id": 24,
-          "title": "Conférence sur l'Innovation",
-          "description": "Découvrez comment innover et transformer votre entreprise.",
-          "date": "2025-05-10",
-          "localisation": "Marseille",
-          "image": "../src/assets/conference1.jpg",
-          "participants": []
-        },
-        {
-          "id": 25,
-          "title": "Conférence Intelligence Artificielle",
-          "description": "Explorez les dernières avancées en intelligence artificielle.",
-          "date": "2025-06-05",
-          "localisation": "Nice",
-          "image": "../src/assets/conference2.jpg",
-          "participants": []
-        },
-        {
-          "id": 26,
-          "title": "Conférence Santé et Bien-Être",
-          "description": "Apprenez les meilleures pratiques pour une vie équilibrée et saine.",
-          "date": "2025-07-20",
-          "localisation": "Bordeaux",
-          "image": "../src/assets/conference1.jpg",
-          "participants": []
-        },
-        {
-          "id": 27,
-          "title": "Conférence Entrepreneuriat",
-          "description": "Des experts partagent leurs conseils pour lancer et développer une entreprise.",
-          "date": "2025-08-12",
-          "localisation": "Strasbourg",
-          "image": "../src/assets/conference2.jpg",
-          "participants": []
-        }
-      ]
+      "title": "Art Digital",
+      "description": "Plongez dans l'univers fascinant de l'art numérique.",
+      "date": "2025-06-20",
+      "localisation": "Nice",
+      "image": "../src/assets/art4.jpg",
+      "participants": [],
+      "category": "Art"
     },
-    "cuisine": {
+    {
       "id": 5,
-      "category": "Cuisine",
-      "items": [
-        {
-          "id": 28,
-          "title": "Atelier Cuisine Italienne",
-          "description": "Apprenez à réaliser de délicieux plats italiens, comme des gnocchis et des pâtes maison.",
-          "date": "2025-02-15",
-          "localisation": "Paris",
-          "image": "../src/assets/cuisine.jpg",
-          "participants": []
-        },
-        {
-          "id": 29,
-          "title": "Découverte de la Gastronomie Française",
-          "description": "Découvrez les secrets des plats français traditionnels avec des chefs renommés.",
-          "date": "2025-03-10",
-          "localisation": "Lyon",
-          "image": "../src/assets/cuisine2.jpg",
-          "participants": []
-        },
-        {
-          "id": 30,
-          "title": "Atelier de Cuisine Végétarienne",
-          "description": "Explorez des recettes végétariennes créatives et délicieuses dans cet atelier pratique.",
-          "date": "2025-04-05",
-          "localisation": "Marseille",
-          "image": "../src/assets/cuisine3.jpg",
-          "participants": []
-        },
-        {
-          "id": 31,
-          "title": "Masterclass de Pâtisserie",
-          "description": "Devenez un maître pâtissier et réalisez des desserts dignes des plus grandes boulangeries.",
-          "date": "2025-05-20",
-          "localisation": "Nice",
-          "image": "../src/assets/cuisine.jpg",
-          "participants": []
-        },
-        {
-          "id": 32,
-          "title": "Atelier de Cuisine Asiatique",
-          "description": "Plongez dans les saveurs exotiques de la cuisine asiatique, avec des plats savoureux.",
-          "date": "2025-06-15",
-          "localisation": "Bordeaux",
-          "image": "../src/assets/cuisine2.jpg",
-          "participants": []
-        },
-        {
-          "id": 33,
-          "title": "Atelier Découverte des Épices",
-          "description": "Apprenez à utiliser des épices du monde entier pour sublimer vos plats.",
-          "date": "2025-07-10",
-          "localisation": "Strasbourg",
-          "image": "../src/assets/cuisine3.jpg",
-          "participants": []
-        }
-      ]
+      "title": "Exposition Van Gogh",
+      "description": "Un voyage immersif dans l'œuvre de Van Gogh.",
+      "date": "2025-07-10",
+      "localisation": "Bordeaux",
+      "image": "../src/assets/art5.jpg",
+      "participants": [],
+      "category": "Art"
     },
-    "echecs": {
+    {
       "id": 6,
-      "category": "Jeux",
-      "items": [
-        {
-          "id": 34,
-          "title": "Tournoi de Blitz",
-          "description": "Un tournoi de parties rapides pour les amateurs de défis stratégiques.",
-          "date": "2025-03-25",
-          "localisation": "Paris",
-          "image": "../src/assets/echec1.jpg",
-          "participants": []
-        },
-        {
-          "id": 35,
-          "title": "Championnat d'Échecs",
-          "description": "Rejoignez les meilleurs joueurs pour ce championnat régional intense.",
-          "date": "2025-04-15",
-          "localisation": "Lyon",
-          "image": "../src/assets/echec2.jpg",
-          "participants": []
-        },
-        {
-          "id": 36,
-          "title": "Atelier Stratégie",
-          "description": "Apprenez des techniques avancées avec un grand maître.",
-          "date": "2025-05-10",
-          "localisation": "Bordeaux",
-          "image": "../src/assets/echec3.jpg",
-          "participants": []
-        }
-      ]
+      "title": "Soirée Interactive",
+      "description": "Participez à une soirée d'art interactif.",
+      "date": "2025-08-05",
+      "localisation": "Toulouse",
+      "image": "../src/assets/art6.jpg",
+      "participants": [],
+      "category": "Art"
     },
-    "hackathon": {
+    {
       "id": 7,
-      "category": "Hackathon",
-      "items": [
-        {
-          "id": 37,
-          "title": "Hackathon AI",
-          "description": "Participez à un hackathon dédié à l'intelligence artificielle et développez des solutions innovantes.",
-          "date": "2025-03-15",
-          "localisation": "Paris",
-          "image": "../src/assets/hackathon1.jpg",
-          "participants": []
-        },
-        {
-          "id": 38,
-          "title": "Développement Web",
-          "description": "Un hackathon de 48 heures axé sur la création d'applications web performantes.",
-          "date": "2025-04-22",
-          "localisation": "Lyon",
-          "image": "../src/assets/hackathon2.jpg",
-          "participants": []
-        },
-        {
-          "id": 39,
-          "title": "Hackathon Blockchain",
-          "description": "Explorez les opportunités offertes par la blockchain dans ce hackathon technique.",
-          "date": "2025-05-10",
-          "localisation": "Marseille",
-          "image": "../src/assets/hackathon3.jpg",
-          "participants": []
-        }
-      ]
+      "title": "Art et Lumière",
+      "description": "Une exposition d'art lumineux et coloré.",
+      "date": "2025-09-15",
+      "localisation": "Strasbourg",
+      "image": "../src/assets/art7.jpg",
+      "participants": [],
+      "category": "Art"
     },
-    "sport": {
+    {
       "id": 8,
-      "category": "Sport",
-      "items": [
-        {
-          "id": 40,
-          "title": "Match de Football",
-          "description": "Venez soutenir votre équipe favorite lors d'un match excitant dans un stade emblématique.",
-          "date": "2025-06-15",
-          "localisation": "Paris",
-          "image": "../src/assets/sport1.jpg",
-          "participants": []
-        },
-        {
-          "id": 41,
-          "title": "Marathon de la Ville",
-          "description": "Relevez le défi et participez à ce marathon réunissant coureurs de tous niveaux.",
-          "date": "2025-09-10",
-          "localisation": "Marseille",
-          "image": "../src/assets/sport2.jpg",
-          "participants": []
-        }
-      ]
+      "title": "Atelier de Sculpture",
+      "description": "Venez créer votre propre sculpture dans cet atelier.",
+      "date": "2025-10-10",
+      "localisation": "Nantes",
+      "image": "../src/assets/art8.jpg",
+      "participants": [],
+      "category": "Art"
     },
-    "theatre": {
+    {
       "id": 9,
-      "category": "Théâtre",
-      "items": [
-        {
-          "id": 42,
-          "title": "Spectacle de Théâtre Classique",
-          "description": "Un spectacle intemporel interprété par des acteurs de renom dans un cadre magnifique.",
-          "date": "2025-06-20",
-          "localisation": "Paris",
-          "image": "../src/assets/theatre1.jpg",
-          "participants": []
-        },
-        {
-          "id": 43,
-          "title": "Opéra de Lyon",
-          "description": "Une représentation captivante d'opéra dans une salle historique.",
-          "date": "2025-07-15",
-          "localisation": "Lyon",
-          "image": "../src/assets/theatre2.jpg",
-          "participants": []
-        },
-        {
-          "id": 44,
-          "title": "Festival de Théâtre Contemporain",
-          "description": "Découvrez des pièces modernes et audacieuses au cœur de Marseille.",
-          "date": "2025-08-25",
-          "localisation": "Marseille",
-          "image": "../src/assets/theatre3.jpg",
-          "participants": []
-        }
-      ]
+      "title": "Exposition de Photographie",
+      "description": "Découvrez des photographies uniques et inspirantes.",
+      "date": "2025-11-05",
+      "localisation": "Montpellier",
+      "image": "../src/assets/art9.jpg",
+      "participants": [],
+      "category": "Art"
+    },
+    {
+      "id": 10,
+      "title": "Exposition d'Affiches de Films Cultes",
+      "description": "Découvrez une collection exclusive d'affiches iconiques de films cultes.",
+      "date": "2025-02-20",
+      "localisation": "Paris",
+      "image": "../src/assets/cinema1.jpg",
+      "participants": [],
+      "category": "Cinema"
+    },
+    {
+      "id": 11,
+      "title": "Soirée Films Classiques",
+      "description": "Une soirée dédiée aux classiques intemporels du cinéma.",
+      "date": "2025-03-05",
+      "localisation": "Lyon",
+      "image": "../src/assets/cinema2.jpg",
+      "participants": [],
+      "category": "Cinema"
+    },
+    {
+      "id": 12,
+      "title": "Projection et Débat : Cinéma Moderne",
+      "description": "Participez à la projection d'un film moderne suivi d'un débat avec des experts.",
+      "date": "2025-04-15",
+      "localisation": "Marseille",
+      "image": "../src/assets/cinema3.jpg",
+      "participants": [],
+      "category": "Cinema"
+    },
+    {
+      "id": 13,
+      "title": "Festival du Film Indépendant",
+      "description": "Un festival célébrant les films indépendants de réalisateurs émergents.",
+      "date": "2025-05-10",
+      "localisation": "Bordeaux",
+      "image": "../src/assets/cinema2.jpg",
+      "participants": [],
+      "category": "Cinema"
+    },
+    {
+      "id": 14,
+      "title": "Soirée Oscar : Projection des Gagnants",
+      "description": "Une soirée spéciale pour découvrir les films gagnants des Oscars.",
+      "date": "2025-06-25",
+      "localisation": "Nice",
+      "image": "../src/assets/cinema1.jpg",
+      "participants": [],
+      "category": "Cinema"
+    },
+    {
+      "id": 15,
+      "title": "Marathon de Films de Science-Fiction",
+      "description": "Préparez-vous à plonger dans l'univers fascinant des films de science-fiction.",
+      "date": "2025-07-15",
+      "localisation": "Toulouse",
+      "image": "../src/assets/cinema3.jpg",
+      "participants": [],
+      "category": "Cinema"
+    },
+    {
+      "id": 16,
+      "title": "Concert Électrique",
+      "description": "Venez vibrer au rythme de musiques électrisantes et d'effets lumineux époustouflants.",
+      "date": "2025-03-15",
+      "localisation": "Paris",
+      "image": "../src/assets/concert1.jpg",
+      "participants": [],
+      "category": "Concert"
+    },
+    {
+      "id": 17,
+      "title": "Soirée Pop Culture",
+      "description": "Un concert dédié aux stars de la pop avec une ambiance festive et spectaculaire.",
+      "date": "2025-04-10",
+      "localisation": "Lyon",
+      "image": "../src/assets/concert2.jpg",
+      "participants": [],
+      "category": "Concert"
+    },
+    {
+      "id": 18,
+      "title": "Performance Live Éblouissante",
+      "description": "Un show inoubliable avec une scénographie de rêve et des artistes de renom.",
+      "date": "2025-05-20",
+      "localisation": "Marseille",
+      "image": "../src/assets/concert3.jpg",
+      "participants": [],
+      "category": "Concert"
+    },
+    {
+      "id": 19,
+      "title": "Nuit des Étoiles Musicales",
+      "description": "Un événement musical unique mettant en lumière les plus grands talents.",
+      "date": "2025-06-05",
+      "localisation": "Nice",
+      "image": "../src/assets/concert1.jpg",
+      "participants": [],
+      "category": "Concert"
+    },
+    {
+      "id": 20,
+      "title": "Festival de Musique Électronique",
+      "description": "Plongez dans une expérience sonore et visuelle unique avec les meilleurs DJs.",
+      "date": "2025-07-15",
+      "localisation": "Bordeaux",
+      "image": "../src/assets/concert2.jpg",
+      "participants": []
+    },
+    {
+      "id": 21,
+      "title": "Pop Night Extravaganza",
+      "description": "Assistez à une nuit mémorable avec les plus grands hits pop joués en live.",
+      "date": "2025-08-25",
+      "localisation": "Strasbourg",
+      "image": "../src/assets/concert3.jpg",
+      "participants": [],
+      "category": "Concert"
+    },
+    {
+      "id": 22,
+      "title": "Conférence Leadership",
+      "description": "Apprenez les compétences clés pour devenir un leader inspirant.",
+      "date": "2025-03-25",
+      "localisation": "Paris",
+      "image": "../src/assets/conference1.jpg",
+      "participants": [],
+      "category": "Conférence"
+    },
+    {
+      "id": 23,
+      "title": "Conférence Développement Personnel",
+      "description": "Un événement pour maximiser votre potentiel et atteindre vos objectifs.",
+      "date": "2025-04-15",
+      "localisation": "Lyon",
+      "image": "../src/assets/conference2.jpg",
+      "participants": [],
+      "category": "Conférence"
+    },
+    {
+      "id": 24,
+      "title": "Conférence sur l'Innovation",
+      "description": "Découvrez comment innover et transformer votre entreprise.",
+      "date": "2025-05-10",
+      "localisation": "Marseille",
+      "image": "../src/assets/conference1.jpg",
+      "participants": [],
+      "category": "Conférence"
+    },
+    {
+      "id": 25,
+      "title": "Conférence Intelligence Artificielle",
+      "description": "Explorez les dernières avancées en intelligence artificielle.",
+      "date": "2025-06-05",
+      "localisation": "Nice",
+      "image": "../src/assets/conference2.jpg",
+      "participants": [],
+      "category": "Conférence"
+    },
+    {
+      "id": 26,
+      "title": "Conférence Santé et Bien-Être",
+      "description": "Apprenez les meilleures pratiques pour une vie équilibrée et saine.",
+      "date": "2025-07-20",
+      "localisation": "Bordeaux",
+      "image": "../src/assets/conference1.jpg",
+      "participants": [],
+      "category": "Conférence"
+    },
+    {
+      "id": 28,
+      "title": "Atelier Cuisine Italienne",
+      "description": "Apprenez à réaliser de délicieux plats italiens, comme des gnocchis et des pâtes maison.",
+      "date": "2025-02-15",
+      "localisation": "Paris",
+      "image": "../src/assets/cuisine.jpg",
+      "participants": [],
+      "category": "Cuisine"
+    },
+    {
+      "id": 29,
+      "title": "Découverte de la Gastronomie Française",
+      "description": "Découvrez les secrets des plats français traditionnels avec des chefs renommés.",
+      "date": "2025-03-10",
+      "localisation": "Lyon",
+      "image": "../src/assets/cuisine2.jpg",
+      "participants": [],
+      "category": "Cuisine"
+    },
+    {
+      "id": 30,
+      "title": "Atelier de Cuisine Végétarienne",
+      "description": "Explorez des recettes végétariennes créatives et délicieuses dans cet atelier pratique.",
+      "date": "2025-04-05",
+      "localisation": "Marseille",
+      "image": "../src/assets/cuisine3.jpg",
+      "participants": [],
+      "category": "Cuisine"
+    },
+    {
+      "id": 31,
+      "title": "Masterclass de Pâtisserie",
+      "description": "Devenez un maître pâtissier et réalisez des desserts dignes des plus grandes boulangeries.",
+      "date": "2025-05-20",
+      "localisation": "Nice",
+      "image": "../src/assets/cuisine.jpg",
+      "participants": [],
+      "category": "Cuisine"
+    },
+    {
+      "id": 32,
+      "title": "Atelier de Cuisine Asiatique",
+      "description": "Plongez dans les saveurs exotiques de la cuisine asiatique, avec des plats savoureux.",
+      "date": "2025-06-15",
+      "localisation": "Bordeaux",
+      "image": "../src/assets/cuisine2.jpg",
+      "participants": [],
+      "category": "Cuisine"
+    },
+    {
+      "id": 33,
+      "title": "Atelier Découverte des Épices",
+      "description": "Apprenez à utiliser des épices du monde entier pour sublimer vos plats.",
+      "date": "2025-07-10",
+      "localisation": "Strasbourg",
+      "image": "../src/assets/cuisine3.jpg",
+      "participants": [],
+      "category": "Cuisine"
+    },
+    {
+      "id": 34,
+      "title": "Tournoi de Blitz",
+      "description": "Un tournoi de parties rapides pour les amateurs de défis stratégiques.",
+      "date": "2025-03-25",
+      "localisation": "Paris",
+      "image": "../src/assets/echec1.jpg",
+      "participants": [],
+      "category": "Jeux"
+    },
+    {
+      "id": 35,
+      "title": "Championnat d'Échecs",
+      "description": "Rejoignez les meilleurs joueurs pour ce championnat régional intense.",
+      "date": "2025-04-15",
+      "localisation": "Lyon",
+      "image": "../src/assets/echec2.jpg",
+      "participants": [],
+      "category": "Jeux"
+    },
+    {
+      "id": 36,
+      "title": "Atelier Stratégie",
+      "description": "Apprenez des techniques avancées avec un grand maître.",
+      "date": "2025-05-10",
+      "localisation": "Bordeaux",
+      "image": "../src/assets/echec3.jpg",
+      "participants": [],
+      "category": "Jeux"
+    },
+    {
+      "id": 37,
+      "title": "Hackathon AI",
+      "description": "Participez à un hackathon dédié à l'intelligence artificielle et développez des solutions innovantes.",
+      "date": "2025-03-15",
+      "localisation": "Paris",
+      "image": "../src/assets/hackathon1.jpg",
+      "participants": [],
+      "category": "Hackathon"
+    },
+    {
+      "id": 38,
+      "title": "Développement Web",
+      "description": "Un hackathon de 48 heures axé sur la création d'applications web performantes.",
+      "date": "2025-04-22",
+      "localisation": "Lyon",
+      "image": "../src/assets/hackathon2.jpg",
+      "participants": [],
+      "category": "Hackathon"
+    },
+    {
+      "id": 39,
+      "title": "Hackathon Blockchain",
+      "description": "Explorez les opportunités offertes par la blockchain dans ce hackathon technique.",
+      "date": "2025-05-10",
+      "localisation": "Marseille",
+      "image": "../src/assets/hackathon3.jpg",
+      "participants": [],
+      "category": "Hackathon"
+    },
+    {
+      "id": 40,
+      "title": "Match de Football",
+      "description": "Venez soutenir votre équipe favorite lors d'un match excitant dans un stade emblématique.",
+      "date": "2025-06-15",
+      "localisation": "Paris",
+      "image": "../src/assets/sport1.jpg",
+      "participants": []
+    },
+    {
+      "id": 41,
+      "title": "Marathon de la Ville",
+      "description": "Relevez le défi et participez à ce marathon réunissant coureurs de tous niveaux.",
+      "date": "2025-09-10",
+      "localisation": "Marseille",
+      "image": "../src/assets/sport2.jpg",
+      "participants": []
+    },
+    {
+      "id": 42,
+      "title": "Spectacle de Théâtre Classique",
+      "description": "Un spectacle intemporel interprété par des acteurs de renom dans un cadre magnifique.",
+      "date": "2025-06-20",
+      "localisation": "Paris",
+      "image": "../src/assets/theatre1.jpg",
+      "participants": []
+    },
+    {
+      "id": 43,
+      "title": "Opéra de Lyon",
+      "description": "Une représentation captivante d'opéra dans une salle historique.",
+      "date": "2025-07-15",
+      "localisation": "Lyon",
+      "image": "../src/assets/theatre2.jpg",
+      "participants": []
+    },
+    {
+      "id": 44,
+      "title": "Festival de Théâtre Contemporain",
+      "description": "Découvrez des pièces modernes et audacieuses au cœur de Marseille.",
+      "date": "2025-08-25",
+      "localisation": "Marseille",
+      "image": "../src/assets/theatre3.jpg",
+      "participants": []
     }
-  }
+  ]
 }
