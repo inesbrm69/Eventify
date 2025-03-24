@@ -8,35 +8,32 @@ const uploadApi = axios.create({
   baseURL: 'http://localhost:3001', // backend upload
 });
 
-//
-// Login
-//
-export const login = async (email, password) => {
+export const loginUser = (user) => {
+  localStorage.setItem("user", JSON.stringify(user)); // Stocker l'utilisateur connecté
+};
+
+export const getLoggedUser = () => {
+  return JSON.parse(localStorage.getItem("user"));
+};
+
+// Déconnexion
+export const logoutUser = () => {
+  localStorage.removeItem("user");
+};
+
+// Récupérer tous les utilisateurs
+export const getAllUsers = async () => {
   try {
-    const response = await api.get('/profiles');
-    const users = response.data;
-    const user = users.find(u => u.email === email && u.password === password);
-
-    if (!user) {
-      return { success: false, error: 'Email ou mot de passe incorrect' };
-    }
-
-    const token = btoa(JSON.stringify(user));
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(user));
-
-    return { success: true, user };
+    const response = await api.get("/users");
+    console.log("Utilisateurs récupérés :", response.data); // Vérifie ce que l'API retourne
+    return response.data;
   } catch (error) {
-    return {
-      success: false,
-      error: error.response?.data?.message || 'Erreur de connexion'
-    };
+    console.error("Erreur lors de la récupération des utilisateurs :", error);
+    throw error;
   }
 };
 
-//
 // Récupérer tous les événements
-//
 export const getAllEvents = async () => {
     try {
         const response = await api.get('/events'); 
@@ -47,9 +44,7 @@ export const getAllEvents = async () => {
     }
 };
 
-//
 // Récupérer un seul événement par ID
-//
 export const getEvent = async (eventId) => {
   try {
     const response = await api.get(`/events/${eventId}`);
@@ -60,9 +55,7 @@ export const getEvent = async (eventId) => {
   }
 };
 
-//
 // Recherche par mot-clé et/ou catégorie
-//
 export const searchEvents = async (searchTerm, category) => {
     try {
         const allEvents = await getAllEvents(); // tableau [{...}, {...}]
@@ -90,10 +83,7 @@ export const searchEvents = async (searchTerm, category) => {
     }
 };
 
-
-//
 // S'inscrire / se désinscrire d'un événement
-//
 export const toggleUserEvent = async (eventId) => {
     try {
         const user = JSON.parse(localStorage.getItem("user"));
@@ -126,9 +116,7 @@ export const toggleUserEvent = async (eventId) => {
     }
 }; 
 
-//
 // Obtenir tous les événements d'une catégorie
-//
 export const getEventByCategorie = async (categoryName) => {
   try {
     const allEvents = await getAllEvents();
@@ -139,9 +127,7 @@ export const getEventByCategorie = async (categoryName) => {
   }
 };
 
-//
 // Créer un événement
-//
 export const createEvent = async (eventData) => {
   try {
     const response = await api.get("/events");
@@ -164,9 +150,7 @@ export const createEvent = async (eventData) => {
   }
 };
 
-//
 // Upload l'image
-//
 export const uploadImage = async (file) => {
   const formData = new FormData();
   formData.append("image", file); // ce nom est OK
@@ -178,8 +162,4 @@ export const uploadImage = async (file) => {
 
   const data = await response.json();
   return data.image;
-};
-
-export const getLoggedUser = () => {
-  return JSON.parse(localStorage.getItem("user"));
 };
