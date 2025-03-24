@@ -35,10 +35,10 @@ const CardInfo = ({ eventId, title, description, date, category, localisation, i
     };
 
     return (
-        <Card className="w-full max-w-md min-h-[400px] flex flex-col justify-between">
+        <Card className="w-full max-w-md min-w-[400px] min-h-[400px] flex flex-col justify-between">
             <div className="flex flex-col">
                 <div className="flex justify-between items-center mb-2">
-                    {image && <img src={image} alt={title} className="size-28 rounded-lg" />}
+                    {image && <img src={`http://localhost:3001/uploads/${image}`} alt={title} className="size-28 rounded-lg" />                }
                     <Text className="text-subtitle text-gray-600">{date}</Text>
                 </div>
                 <Title className="text-lg font-bold text-primary-500 mb-2">{title}</Title>

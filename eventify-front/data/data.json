@@ -23,7 +23,7 @@
       "description": "Venez explorer votre créativité dans cet atelier de peinture.",
       "date": "2025-03-10",
       "localisation": "Paris",
-      "image": "../src/assets/art1.jpg",
+      "image": "art1.jpg",
       "participants": [
         "1"
       ],
@@ -35,7 +35,7 @@
       "description": "Une exposition captivante d'art moderne.",
       "date": "2025-04-15",
       "localisation": "Lyon",
-      "image": "../src/assets/art2.jpg",
+      "image": "art2.jpg",
       "participants": [
         "1"
       ],
@@ -47,10 +47,8 @@
       "description": "Découvrez des chefs-d'œuvre classiques dans une ambiance unique.",
       "date": "2025-05-05",
       "localisation": "Marseille",
-      "image": "../src/assets/art3.jpg",
-      "participants": [
-        "1"
-      ],
+      "image": "art3.jpg",
+      "participants": [],
       "category": "Art"
     },
     {
@@ -59,7 +57,7 @@
       "description": "Plongez dans l'univers fascinant de l'art numérique.",
       "date": "2025-06-20",
       "localisation": "Nice",
-      "image": "../src/assets/art4.jpg",
+      "image": "art4.jpg",
       "participants": [],
       "category": "Art"
     },
@@ -69,7 +67,7 @@
       "description": "Un voyage immersif dans l'œuvre de Van Gogh.",
       "date": "2025-07-10",
       "localisation": "Bordeaux",
-      "image": "../src/assets/art5.jpg",
+      "image": "art5.jpg",
       "participants": [
         "1"
       ],
@@ -81,7 +79,7 @@
       "description": "Participez à une soirée d'art interactif.",
       "date": "2025-08-05",
       "localisation": "Toulouse",
-      "image": "../src/assets/art6.jpg",
+      "image": "art6.jpg",
       "participants": [],
       "category": "Art"
     },
@@ -91,7 +89,7 @@
       "description": "Une exposition d'art lumineux et coloré.",
       "date": "2025-09-15",
       "localisation": "Strasbourg",
-      "image": "../src/assets/art7.jpg",
+      "image": "art7.jpg",
       "participants": [],
       "category": "Art"
     },
@@ -101,7 +99,7 @@
       "description": "Venez créer votre propre sculpture dans cet atelier.",
       "date": "2025-10-10",
       "localisation": "Nantes",
-      "image": "../src/assets/art8.jpg",
+      "image": "art8.jpg",
       "participants": [],
       "category": "Art"
     },
@@ -111,7 +109,7 @@
       "description": "Découvrez des photographies uniques et inspirantes.",
       "date": "2025-11-05",
       "localisation": "Montpellier",
-      "image": "../src/assets/art9.jpg",
+      "image": "art9.jpg",
       "participants": [],
       "category": "Art"
     },
@@ -121,7 +119,7 @@
       "description": "Découvrez une collection exclusive d'affiches iconiques de films cultes.",
       "date": "2025-02-20",
       "localisation": "Paris",
-      "image": "../src/assets/cinema1.jpg",
+      "image": "cinema1.jpg",
       "participants": [],
       "category": "Cinema"
     },
@@ -131,7 +129,7 @@
       "description": "Une soirée dédiée aux classiques intemporels du cinéma.",
       "date": "2025-03-05",
       "localisation": "Lyon",
-      "image": "../src/assets/cinema2.jpg",
+      "image": "cinema2.jpg",
       "participants": [],
       "category": "Cinema"
     },
@@ -141,7 +139,7 @@
       "description": "Participez à la projection d'un film moderne suivi d'un débat avec des experts.",
       "date": "2025-04-15",
       "localisation": "Marseille",
-      "image": "../src/assets/cinema3.jpg",
+      "image": "cinema3.jpg",
       "participants": [],
       "category": "Cinema"
     },
@@ -151,7 +149,7 @@
       "description": "Un festival célébrant les films indépendants de réalisateurs émergents.",
       "date": "2025-05-10",
       "localisation": "Bordeaux",
-      "image": "../src/assets/cinema2.jpg",
+      "image": "cinema2.jpg",
       "participants": [],
       "category": "Cinema"
     },
@@ -161,7 +159,7 @@
       "description": "Une soirée spéciale pour découvrir les films gagnants des Oscars.",
       "date": "2025-06-25",
       "localisation": "Nice",
-      "image": "../src/assets/cinema1.jpg",
+      "image": "cinema1.jpg",
       "participants": [],
       "category": "Cinema"
     },
@@ -171,7 +169,7 @@
       "description": "Préparez-vous à plonger dans l'univers fascinant des films de science-fiction.",
       "date": "2025-07-15",
       "localisation": "Toulouse",
-      "image": "../src/assets/cinema3.jpg",
+      "image": "cinema3.jpg",
       "participants": [],
       "category": "Cinema"
     },
@@ -181,7 +179,7 @@
       "description": "Venez vibrer au rythme de musiques électrisantes et d'effets lumineux époustouflants.",
       "date": "2025-03-15",
       "localisation": "Paris",
-      "image": "../src/assets/concert1.jpg",
+      "image": "concert1.jpg",
       "participants": [],
       "category": "Concert"
     },
@@ -191,7 +189,7 @@
       "description": "Un concert dédié aux stars de la pop avec une ambiance festive et spectaculaire.",
       "date": "2025-04-10",
       "localisation": "Lyon",
-      "image": "../src/assets/concert2.jpg",
+      "image": "concert2.jpg",
       "participants": [],
       "category": "Concert"
     },
@@ -201,7 +199,7 @@
       "description": "Un show inoubliable avec une scénographie de rêve et des artistes de renom.",
       "date": "2025-05-20",
       "localisation": "Marseille",
-      "image": "../src/assets/concert3.jpg",
+      "image": "concert3.jpg",
       "participants": [],
       "category": "Concert"
     },
@@ -211,7 +209,7 @@
       "description": "Un événement musical unique mettant en lumière les plus grands talents.",
       "date": "2025-06-05",
       "localisation": "Nice",
-      "image": "../src/assets/concert1.jpg",
+      "image": "concert1.jpg",
       "participants": [],
       "category": "Concert"
     },
@@ -221,7 +219,7 @@
       "description": "Plongez dans une expérience sonore et visuelle unique avec les meilleurs DJs.",
       "date": "2025-07-15",
       "localisation": "Bordeaux",
-      "image": "../src/assets/concert2.jpg",
+      "image": "concert2.jpg",
       "participants": [],
       "category": "Concert"
     },
@@ -231,7 +229,7 @@
       "description": "Assistez à une nuit mémorable avec les plus grands hits pop joués en live.",
       "date": "2025-08-25",
       "localisation": "Strasbourg",
-      "image": "../src/assets/concert3.jpg",
+      "image": "concert3.jpg",
       "participants": [],
       "category": "Concert"
     },
@@ -241,7 +239,7 @@
       "description": "Apprenez les compétences clés pour devenir un leader inspirant.",
       "date": "2025-03-25",
       "localisation": "Paris",
-      "image": "../src/assets/conference1.jpg",
+      "image": "conference1.jpg",
       "participants": [],
       "category": "Conférence"
     },
@@ -251,7 +249,7 @@
       "description": "Un événement pour maximiser votre potentiel et atteindre vos objectifs.",
       "date": "2025-04-15",
       "localisation": "Lyon",
-      "image": "../src/assets/conference2.jpg",
+      "image": "conference2.jpg",
       "participants": [],
       "category": "Conférence"
     },
@@ -261,7 +259,7 @@
       "description": "Découvrez comment innover et transformer votre entreprise.",
       "date": "2025-05-10",
       "localisation": "Marseille",
-      "image": "../src/assets/conference1.jpg",
+      "image": "conference1.jpg",
       "participants": [],
       "category": "Conférence"
     },
@@ -271,7 +269,7 @@
       "description": "Explorez les dernières avancées en intelligence artificielle.",
       "date": "2025-06-05",
       "localisation": "Nice",
-      "image": "../src/assets/conference2.jpg",
+      "image": "conference2.jpg",
       "participants": [],
       "category": "Conférence"
     },
@@ -281,7 +279,7 @@
       "description": "Apprenez les meilleures pratiques pour une vie équilibrée et saine.",
       "date": "2025-07-20",
       "localisation": "Bordeaux",
-      "image": "../src/assets/conference1.jpg",
+      "image": "conference1.jpg",
       "participants": [],
       "category": "Conférence"
     },
@@ -291,7 +289,7 @@
       "description": "Apprenez à réaliser de délicieux plats italiens, comme des gnocchis et des pâtes maison.",
       "date": "2025-02-15",
       "localisation": "Paris",
-      "image": "../src/assets/cuisine.jpg",
+      "image": "cuisine.jpg",
       "participants": [],
       "category": "Cuisine"
     },
@@ -301,7 +299,7 @@
       "description": "Découvrez les secrets des plats français traditionnels avec des chefs renommés.",
       "date": "2025-03-10",
       "localisation": "Lyon",
-      "image": "../src/assets/cuisine2.jpg",
+      "image": "cuisine2.jpg",
       "participants": [],
       "category": "Cuisine"
     },
@@ -311,7 +309,7 @@
       "description": "Explorez des recettes végétariennes créatives et délicieuses dans cet atelier pratique.",
       "date": "2025-04-05",
       "localisation": "Marseille",
-      "image": "../src/assets/cuisine3.jpg",
+      "image": "cuisine3.jpg",
       "participants": [],
       "category": "Cuisine"
     },
@@ -321,7 +319,7 @@
       "description": "Devenez un maître pâtissier et réalisez des desserts dignes des plus grandes boulangeries.",
       "date": "2025-05-20",
       "localisation": "Nice",
-      "image": "../src/assets/cuisine.jpg",
+      "image": "cuisine.jpg",
       "participants": [],
       "category": "Cuisine"
     },
@@ -331,7 +329,7 @@
       "description": "Plongez dans les saveurs exotiques de la cuisine asiatique, avec des plats savoureux.",
       "date": "2025-06-15",
       "localisation": "Bordeaux",
-      "image": "../src/assets/cuisine2.jpg",
+      "image": "cuisine2.jpg",
       "participants": [],
       "category": "Cuisine"
     },
@@ -341,7 +339,7 @@
       "description": "Apprenez à utiliser des épices du monde entier pour sublimer vos plats.",
       "date": "2025-07-10",
       "localisation": "Strasbourg",
-      "image": "../src/assets/cuisine3.jpg",
+      "image": "cuisine3.jpg",
       "participants": [],
       "category": "Cuisine"
     },
@@ -351,7 +349,7 @@
       "description": "Un tournoi de parties rapides pour les amateurs de défis stratégiques.",
       "date": "2025-03-25",
       "localisation": "Paris",
-      "image": "../src/assets/echec1.jpg",
+      "image": "echec1.jpg",
       "participants": [],
       "category": "Jeux"
     },
@@ -361,7 +359,7 @@
       "description": "Rejoignez les meilleurs joueurs pour ce championnat régional intense.",
       "date": "2025-04-15",
       "localisation": "Lyon",
-      "image": "../src/assets/echec2.jpg",
+      "image": "echec2.jpg",
       "participants": [],
       "category": "Jeux"
     },
@@ -371,7 +369,7 @@
       "description": "Apprenez des techniques avancées avec un grand maître.",
       "date": "2025-05-10",
       "localisation": "Bordeaux",
-      "image": "../src/assets/echec3.jpg",
+      "image": "echec3.jpg",
       "participants": [],
       "category": "Jeux"
     },
@@ -381,7 +379,7 @@
       "description": "Participez à un hackathon dédié à l'intelligence artificielle et développez des solutions innovantes.",
       "date": "2025-03-15",
       "localisation": "Paris",
-      "image": "../src/assets/hackathon1.jpg",
+      "image": "hackathon1.jpg",
       "participants": [],
       "category": "Hackathon"
     },
@@ -391,7 +389,7 @@
       "description": "Un hackathon de 48 heures axé sur la création d'applications web performantes.",
       "date": "2025-04-22",
       "localisation": "Lyon",
-      "image": "../src/assets/hackathon2.jpg",
+      "image": "hackathon2.jpg",
       "participants": [],
       "category": "Hackathon"
     },
@@ -401,7 +399,7 @@
       "description": "Explorez les opportunités offertes par la blockchain dans ce hackathon technique.",
       "date": "2025-05-10",
       "localisation": "Marseille",
-      "image": "../src/assets/hackathon3.jpg",
+      "image": "hackathon3.jpg",
       "participants": [],
       "category": "Hackathon"
     },
@@ -411,7 +409,7 @@
       "description": "Venez soutenir votre équipe favorite lors d'un match excitant dans un stade emblématique.",
       "date": "2025-06-15",
       "localisation": "Paris",
-      "image": "../src/assets/sport1.jpg",
+      "image": "sport1.jpg",
       "participants": [],
       "category": "Sport"
     },
@@ -421,7 +419,7 @@
       "description": "Relevez le défi et participez à ce marathon réunissant coureurs de tous niveaux.",
       "date": "2025-09-10",
       "localisation": "Marseille",
-      "image": "../src/assets/sport2.jpg",
+      "image": "sport2.jpg",
       "participants": [],
       "category": "Sport"
     },
@@ -431,7 +429,7 @@
       "description": "Un spectacle intemporel interprété par des acteurs de renom dans un cadre magnifique.",
       "date": "2025-06-20",
       "localisation": "Paris",
-      "image": "../src/assets/theatre1.jpg",
+      "image": "theatre1.jpg",
       "participants": [],
       "category": "Théâtre"
     },
@@ -441,7 +439,7 @@
       "description": "Une représentation captivante d'opéra dans une salle historique.",
       "date": "2025-07-15",
       "localisation": "Lyon",
-      "image": "../src/assets/theatre2.jpg",
+      "image": "theatre2.jpg",
       "participants": [],
       "category": "Théâtre"
     },
@@ -451,7 +449,7 @@
       "description": "Découvrez des pièces modernes et audacieuses au cœur de Marseille.",
       "date": "2025-08-25",
       "localisation": "Marseille",
-      "image": "../src/assets/theatre3.jpg",
+      "image": "theatre3.jpg",
       "participants": [],
       "category": "Théâtre"
     }

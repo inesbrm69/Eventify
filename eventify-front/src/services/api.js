@@ -4,6 +4,10 @@ const api = axios.create({
   baseURL: 'http://localhost:3000/'
 });
 
+const uploadApi = axios.create({
+  baseURL: 'http://localhost:3001', // backend upload
+});
+
 //
 // Login
 //
@@ -133,4 +137,36 @@ export const getEventByCategorie = async (categoryName) => {
     console.error("Erreur lors du filtrage par catégorie :", error);
     throw error;
   }
+};
+
+//
+// Créer un événement
+//
+export const createEvent = async (eventData) => {
+  try {
+    const response = await api.post('/events', {
+      ...eventData,
+      participants: [], // ajoute une liste vide par défaut
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Erreur lors de la création de l'événement :", error);
+    throw error;
+  }
+};
+
+//
+// Upload l'image
+//
+export const uploadImage = async (file) => {
+  const formData = new FormData();
+  formData.append('image', file);
+
+  const response = await uploadApi.post('/upload', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+
+  return response.data.filename; // retourne le nom du fichier
 };

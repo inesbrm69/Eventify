@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { searchEvents, getAllEvents } from "../../services/api";
-import { Event, SearchBar } from "../../components/organisms";
+import { Event, SearchBar, EventCreationPanel } from "../../components/organisms";
 
 const Events = () => {
     const [events, setEvents] = useState([]);
@@ -38,8 +38,8 @@ const Events = () => {
                 setSelectedCategory={setSelectedCategory} 
                 categories={[...new Set(events.map(event => event.category))]} 
             />
-            
-            <div className="flex flex-wrap justify-center">
+            <EventCreationPanel setEvents={setEvents} />
+            <div className="flex flex-wrap justify-center gap-6 p-6">
                 {loading ? (
                     <p>Loading...</p>
                 ) : filteredEvents.length > 0 ? (

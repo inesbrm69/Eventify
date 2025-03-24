@@ -15,4 +15,7 @@ Créer une application web où les utilisateurs peuvent :
 ```
     cd .\eventify-front
     json-server --watch data/data.json --port 3000
+
+    cd .\eventify-server
+    node server.js
 ``` 
