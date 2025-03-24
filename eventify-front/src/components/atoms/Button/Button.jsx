@@ -2,7 +2,7 @@ import React from 'react';
 
 const Button = ({ children, className, onClick }) => {
     return (
-        <div className="relative mt-5 flex align-center justify-center">
+        <div className="relative flex align-center justify-center">
             <button className={className} onClick={onClick}>
                 {children}
             </button>

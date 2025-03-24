@@ -1,7 +1,7 @@
 import Form from './Form/Form';
 import Event from './Event/Event';
-import SearchBar from './SearchBar/SearchBar';
+import FiltersBar from './FiltersBar/FiltersBar';
 import EventCreationPanel from './EventCreationPanel/EventCreationPanel';
 import EventForm from './EventForm/EventForm';
 
-export { Form, Event, SearchBar, EventCreationPanel, EventForm };
+export { Form, Event, FiltersBar, EventCreationPanel, EventForm };

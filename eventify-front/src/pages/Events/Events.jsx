@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { searchEvents, getAllEvents } from "../../services/api";
-import { Event, SearchBar, EventCreationPanel } from "../../components/organisms";
+import { Event, FiltersBar, EventCreationPanel } from "../../components/organisms";
 
 const Events = () => {
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
+    const [sortOrder, setSortOrder] = useState("asc");
     const [loading, setLoading] = useState(true);
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
 
+    // Charger tous les événements au montage
     useEffect(() => {
         const fetchEvents = async () => {
             try {
@@ -25,22 +27,36 @@ const Events = () => {
         fetchEvents();
     }, []);
 
+    // Fonction pour trier les événements par date
+    const sortEventsByDate = (events, order) => {
+        return [...events].sort((a, b) => {
+            const dateA = new Date(a.date);
+            const dateB = new Date(b.date);
+            return order === "asc" ? dateA - dateB : dateB - dateA;
+        });
+    };
+
+    // Mettre à jour `filteredEvents` lors d'une recherche ou d'un changement de tri
     useEffect(() => {
         searchEvents(searchTerm, selectedCategory)
-            .then(setFilteredEvents)
+            .then(events => {
+                setFilteredEvents(sortEventsByDate(events, sortOrder));
+            })
             .catch((error) => console.error("Erreur lors de la recherche :", error));
-    }, [searchTerm, selectedCategory, events]);
+    }, [searchTerm, selectedCategory, events, sortOrder]);
 
     return (
         <div className="p-4">
-            <SearchBar 
+            <FiltersBar 
                 searchTerm={searchTerm} 
                 setSearchTerm={setSearchTerm} 
                 selectedCategory={selectedCategory} 
                 setSelectedCategory={setSelectedCategory} 
                 categories={[...new Set(events.map(event => event.category))]} 
+                sortOrder={sortOrder} 
+                setSortOrder={setSortOrder} 
+                setEvents={setEvents}
             />
-            <EventCreationPanel setEvents={setEvents} />
             <div className="flex flex-wrap justify-center gap-6 p-6">
                 {loading ? (
                     <p>Loading...</p>
