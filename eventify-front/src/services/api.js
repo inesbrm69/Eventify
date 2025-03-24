@@ -170,3 +170,7 @@ export const uploadImage = async (file) => {
   const data = await response.json();
   return data.image;
 };
+
+export const getLoggedUser = () => {
+  return JSON.parse(localStorage.getItem("user"));
+};
