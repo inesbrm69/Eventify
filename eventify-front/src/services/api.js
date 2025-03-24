@@ -144,11 +144,20 @@ export const getEventByCategorie = async (categoryName) => {
 //
 export const createEvent = async (eventData) => {
   try {
-    const response = await api.post('/events', {
+    const response = await api.get("/events");
+    const events = response.data;
+
+    const maxId = events.length > 0 ? Math.max(...events.map(e => parseInt(e.id, 10))) : 0;
+    const newId = (maxId + 1).toString();
+
+    const newEvent = {
+      id: newId,
       ...eventData,
-      participants: [], // ajoute une liste vide par défaut
-    });
-    return response.data;
+      participants: []
+    };
+
+    const createdEvent = await api.post("/events", newEvent);
+    return createdEvent.data;
   } catch (error) {
     console.error("Erreur lors de la création de l'événement :", error);
     throw error;
