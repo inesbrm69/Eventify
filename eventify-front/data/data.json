@@ -68,9 +68,7 @@
       "date": "2025-07-10",
       "localisation": "Bordeaux",
       "image": "art5.jpg",
-      "participants": [
-        "1"
-      ],
+      "participants": [],
       "category": "Art"
     },
     {
@@ -100,7 +98,9 @@
       "date": "2025-10-10",
       "localisation": "Nantes",
       "image": "art8.jpg",
-      "participants": [],
+      "participants": [
+        "1"
+      ],
       "category": "Art"
     },
     {
@@ -110,7 +110,9 @@
       "date": "2025-11-05",
       "localisation": "Montpellier",
       "image": "art9.jpg",
-      "participants": [],
+      "participants": [
+        "1"
+      ],
       "category": "Art"
     },
     {
@@ -452,6 +454,16 @@
       "image": "theatre3.jpg",
       "participants": [],
       "category": "Théâtre"
+    },
+    {
+      "id": "c46f",
+      "title": "Test",
+      "description": "",
+      "date": "",
+      "localisation": "",
+      "category": "",
+      "image": "kawai-1742829196052.png",
+      "participants": []
     }
   ]
 }

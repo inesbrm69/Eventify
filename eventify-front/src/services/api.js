@@ -160,13 +160,13 @@ export const createEvent = async (eventData) => {
 //
 export const uploadImage = async (file) => {
   const formData = new FormData();
-  formData.append('image', file);
+  formData.append("image", file); // ce nom est OK
 
-  const response = await uploadApi.post('/upload', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
+  const response = await fetch("http://localhost:3001/upload", {
+    method: "POST",
+    body: formData,
   });
 
-  return response.data.filename; // retourne le nom du fichier
+  const data = await response.json();
+  return data.image;
 };

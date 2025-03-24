@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 const ImageDropzone = ({ onImageSelect, existingFilenames = [] }) => {
   const [preview, setPreview] = useState(null);
   const [error, setError] = useState("");
-  const fileInputRef = useRef(null); // 🔁 pour contrôler le input caché
+  const fileInputRef = useRef(null);
 
   const handleDrop = (e) => {
     e.preventDefault();

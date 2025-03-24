@@ -21,12 +21,20 @@ const EventForm = ({ onSubmit, setEvents }) => {
     e.preventDefault();
     try {
       let imagePath = "";
-
+    
       if (selectedImage) {
+        console.log("Uploading image...");
         const uploadedImageName = await uploadImage(selectedImage);
-        imagePath = `/uploads/${uploadedImageName}`;
+        console.log("Image uploaded:", uploadedImageName);
+        imagePath = uploadedImageName;
       }
-
+    
+      console.log("Creating event with:", {
+        ...formData,
+        image: imagePath,
+        participants: []
+      });
+    
       const newEvent = await createEvent({
         ...formData,
         image: imagePath,
@@ -36,9 +44,9 @@ const EventForm = ({ onSubmit, setEvents }) => {
       setEvents((prev) => [...prev, newEvent]);
       onSubmit();
     } catch (err) {
+      console.error("Erreur attrapée pendant la création :", err);
       alert("Erreur lors de la création");
-      console.error(err);
-    }
+    }    
   };
 
   return (
