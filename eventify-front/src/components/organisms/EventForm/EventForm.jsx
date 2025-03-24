@@ -36,25 +36,31 @@ const EventForm = ({ onSubmit, setEvents }) => {
     e.preventDefault();
     try {
       let imagePath = "";
-
+  
       if (selectedImage) {
         const uploadedImageName = await uploadImage(selectedImage);
         imagePath = uploadedImageName;
       }
-
-      const newEvent = await createEvent({
+  
+      // Création de l'événement
+      await createEvent({
         ...formData,
         image: imagePath,
         participants: []
       });
-
-      setEvents((prev) => [...prev, newEvent]);
+  
+      // Forcer le refresh en récupérant la liste complète
+      const updatedEvents = await getAllEvents();
+      setEvents(updatedEvents);
+  
+      // Fermer le formulaire après succès
       onSubmit();
     } catch (err) {
       console.error("Erreur attrapée pendant la création :", err);
       alert("Erreur lors de la création");
     }
   };
+  
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 max-h-[75vh] overflow-y-auto pr-2">

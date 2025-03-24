@@ -10,24 +10,26 @@ const Events = () => {
     const [selectedCategory, setSelectedCategory] = useState("");
 
     useEffect(() => {
-        getAllEvents()
-            .then((allEvents) => {
+        const fetchEvents = async () => {
+            try {
+                const allEvents = await getAllEvents();
                 setEvents(allEvents);
                 setFilteredEvents(allEvents);
                 setLoading(false);
-            })
-            .catch((error) => {
+            } catch (error) {
                 console.error("Erreur lors de la récupération des événements :", error);
                 setLoading(false);
-            });
+            }
+        };
+
+        fetchEvents();
     }, []);
 
-    // Mettre à jour la liste des événements lorsqu'un filtre est modifié
     useEffect(() => {
         searchEvents(searchTerm, selectedCategory)
             .then(setFilteredEvents)
             .catch((error) => console.error("Erreur lors de la recherche :", error));
-    }, [searchTerm, selectedCategory]);
+    }, [searchTerm, selectedCategory, events]);
 
     return (
         <div className="p-4">
@@ -53,12 +55,12 @@ const Events = () => {
                                 year: "numeric",
                                 month: "long",
                                 day: "numeric"
-                              })}                              
+                            })}                              
                             category={event.category}
                             localisation={event.localisation}
                             image={event.image}
-                            events={events}  // Passe bien events
-                            setEvents={setEvents}  // Passe bien setEvents
+                            events={events}  
+                            setEvents={setEvents}  
                         />
                     ))
                 ) : (
