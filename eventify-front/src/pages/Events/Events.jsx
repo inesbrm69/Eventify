@@ -49,7 +49,11 @@ const Events = () => {
                             id={event.id}
                             title={event.title}
                             description={event.description}
-                            date={event.date}
+                            date={new Date(event.date).toLocaleDateString("fr-FR", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric"
+                              })}                              
                             category={event.category}
                             localisation={event.localisation}
                             image={event.image}
