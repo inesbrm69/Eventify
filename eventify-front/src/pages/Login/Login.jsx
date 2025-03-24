@@ -7,7 +7,12 @@ const Login = () => {
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    return <Form setUser={(user) => login(user, navigate)} />;
+    return (
+        <div>
+            <Form setUser={(user) => login(user, navigate)} />
+        </div>
+    
+);
 };
 
 export default Login;

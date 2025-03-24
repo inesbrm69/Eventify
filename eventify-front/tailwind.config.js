@@ -57,9 +57,6 @@ export default {
         },
         background: '#FFF', // Couleur de fond
       },
-      backgroundImage: {
-        'blue-to-white': 'linear-gradient(to bottom, #04A3EA, #FFFFFF)', // Dégradé bleu à blanc
-      },
     },
   },
   plugins: [],

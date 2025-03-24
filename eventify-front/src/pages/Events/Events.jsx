@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 import { searchEvents, getAllEvents, getLoggedUser } from "../../services/api";
 import { Event, FiltersBar } from "../../components/organisms";
+import { Button } from "../../components/atoms";
 
 const Events = () => {
+    const { logout } = useContext(AuthContext); // Récupérer la fonction logout
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
     const [sortOrder, setSortOrder] = useState("asc");
@@ -57,6 +60,23 @@ const Events = () => {
 
     return (
         <div className="p-4">
+            {user && (
+                <div className="flex justify-between mb-4">
+                    <Button
+                        onClick={() => setShowUserEvents(!showUserEvents)}
+                        className="px-4 py-2 bg-green-500 text-white rounded-md"
+                    >
+                        {showUserEvents ? "Voir tous les événements" : "Voir mes événements"}
+                    </Button>
+
+                    <Button
+                        onClick={() => logout()}
+                        className="px-4 py-2 bg-red-500 text-white rounded-md"
+                    >
+                        Déconnexion
+                    </Button>
+                </div>
+            )}
             <FiltersBar 
                 searchTerm={searchTerm} 
                 setSearchTerm={setSearchTerm} 
@@ -67,14 +87,6 @@ const Events = () => {
                 setSortOrder={setSortOrder} 
                 setEvents={setEvents}
             />
-            {user && (
-                <button
-                    onClick={() => setShowUserEvents(!showUserEvents)}
-                    className="px-4 py-2 bg-green-500 text-white rounded-md mb-4"
-                >
-                    {showUserEvents ? "Voir tous les événements" : "Voir mes événements"}
-                </button>
-            )}
 
             <div className="flex flex-wrap justify-center gap-6 p-6">
                 {loading ? (

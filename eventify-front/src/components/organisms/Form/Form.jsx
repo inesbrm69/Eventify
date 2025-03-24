@@ -32,7 +32,7 @@ const Form = ({ setUser }) => {
 
     return (
         <div className="flex flex-col justify-center items-center w-screen h-screen">
-            <div className="flex flex-col gap-4 p-6 bg-white shadow-md rounded-md">
+            <div className="flex flex-col gap-4 p-6 shadow-md rounded-md">
                 <h2 className="text-xl font-bold text-center">Sélectionner un utilisateur</h2>
                 {loggedUser ? (
                     <div className="text-center">
