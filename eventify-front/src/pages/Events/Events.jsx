@@ -48,14 +48,27 @@ const Events = () => {
         return events.filter(event => event.participants.includes(user.id));
     };
 
-    // Mettre à jour `filteredEvents` lors d'une recherche ou d'un changement de tri
+    // Fonction pour filtrer et trier les événements
     useEffect(() => {
-        const eventList = showUserEvents ? getUserEvents() : events;
-        searchEvents(searchTerm, selectedCategory)
-            .then(events => {
-                setFilteredEvents(sortEventsByDate(eventList, sortOrder));
-            })
-            .catch((error) => console.error("Erreur lors de la recherche :", error));
+        const filterAndSortEvents = async () => {
+            try {
+                const eventList = showUserEvents ? getUserEvents() : events;
+
+                let filtered = eventList;
+
+                // Appliquer la recherche et le filtre catégorie
+                if (searchTerm || selectedCategory) {
+                    filtered = await searchEvents(searchTerm, selectedCategory);
+                }
+
+                // Appliquer le tri par date après le filtrage
+                setFilteredEvents(sortEventsByDate(filtered, sortOrder));
+            } catch (error) {
+                console.error("Erreur lors du filtrage :", error);
+            }
+        };
+
+        filterAndSortEvents();
     }, [searchTerm, selectedCategory, events, sortOrder, showUserEvents]);
 
     return (

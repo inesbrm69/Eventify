@@ -1,5 +1,7 @@
 # Eventify - Plateforme de gestion d'événements
 
+Eventify est une plateforme qui permet aux utilisateurs de créer, rechercher, filtrer et s'inscrire à des événements. Elle offre également une gestion des utilisateurs et la possibilité de voir les événements auxquels un utilisateur est inscrit.
+
 ### Objectifs du projet
 
 Créer une application web où les utilisateurs peuvent :
