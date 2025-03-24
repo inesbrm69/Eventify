@@ -95,29 +95,32 @@ export const toggleUserEvent = async (eventId) => {
         const user = JSON.parse(localStorage.getItem("user"));
         if (!user) throw new Error("Utilisateur non connecté");
 
+        // Récupération de l'événement par ID
+        const res = await api.get(`/events/${eventId}`);
+        const event = res.data;
+
         const userId = String(user.id);
-
-        // Récupère l'événement unique
-        const { data: event } = await api.get(`/events/${eventId}`);
-
-        // Met à jour les participants
         let updatedParticipants = [...(event.participants || [])];
 
         if (updatedParticipants.includes(userId)) {
+            // Désinscription
             updatedParticipants = updatedParticipants.filter(id => id !== userId);
         } else {
+            // Inscription
             updatedParticipants.push(userId);
         }
 
-        const updatedEvent = { ...event, participants: updatedParticipants };
+        // Mise à jour via PATCH
+        const patchRes = await api.patch(`/events/${eventId}`, {
+            participants: updatedParticipants,
+        });
 
-        const res = await api.patch(`/events/${eventId}`, updatedEvent);
-        return res.data;
-
+        return patchRes.data;
     } catch (error) {
+        console.error("PATCH error:", error);
         throw new Error("Erreur lors de la mise à jour.");
     }
-};  
+}; 
 
 //
 // Obtenir tous les événements d'une catégorie
