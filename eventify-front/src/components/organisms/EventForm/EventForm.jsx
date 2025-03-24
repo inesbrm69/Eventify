@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import { ImageDropzone } from "../../atoms";
-import { createEvent, uploadImage } from "../../../services/api";
+import React, { useState, useEffect } from "react";
+import { ImageDropzone, SelectBox } from "../../atoms";
+import { createEvent, uploadImage, getAllEvents } from "../../../services/api";
 
 const EventForm = ({ onSubmit, setEvents }) => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [localisations, setLocalisations] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -11,6 +13,19 @@ const EventForm = ({ onSubmit, setEvents }) => {
     localisation: "",
     category: ""
   });
+
+  useEffect(() => {
+    const fetchMeta = async () => {
+      try {
+        const events = await getAllEvents();
+        setCategories([...new Set(events.map(e => e.category).filter(Boolean))]);
+        setLocalisations([...new Set(events.map(e => e.localisation).filter(Boolean))]);
+      } catch (err) {
+        console.error("Erreur lors du chargement des données :", err);
+      }
+    };
+    fetchMeta();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,20 +36,12 @@ const EventForm = ({ onSubmit, setEvents }) => {
     e.preventDefault();
     try {
       let imagePath = "";
-    
+
       if (selectedImage) {
-        console.log("Uploading image...");
         const uploadedImageName = await uploadImage(selectedImage);
-        console.log("Image uploaded:", uploadedImageName);
         imagePath = uploadedImageName;
       }
-    
-      console.log("Creating event with:", {
-        ...formData,
-        image: imagePath,
-        participants: []
-      });
-    
+
       const newEvent = await createEvent({
         ...formData,
         image: imagePath,
@@ -46,7 +53,7 @@ const EventForm = ({ onSubmit, setEvents }) => {
     } catch (err) {
       console.error("Erreur attrapée pendant la création :", err);
       alert("Erreur lors de la création");
-    }    
+    }
   };
 
   return (
@@ -54,11 +61,22 @@ const EventForm = ({ onSubmit, setEvents }) => {
       <Input label="Titre" name="title" value={formData.title} onChange={handleChange} />
       <Input label="Description" name="description" value={formData.description} onChange={handleChange} />
       <Input label="Date" type="date" name="date" value={formData.date} onChange={handleChange} />
-      <Input label="Localisation" name="localisation" value={formData.localisation} onChange={handleChange} />
-      
+
+      <SelectBox
+        selectedValue={formData.localisation}
+        setSelectedValue={(value) => setFormData((prev) => ({ ...prev, localisation: value }))}
+        options={localisations}
+        title="Choisir une localisation"
+      />
+
       <ImageDropzone onImageSelect={(file) => setSelectedImage(file)} />
 
-      <Input label="Catégorie" name="category" value={formData.category} onChange={handleChange} />
+      <SelectBox
+        selectedValue={formData.category}
+        setSelectedValue={(value) => setFormData((prev) => ({ ...prev, category: value }))}
+        options={categories}
+        title="Choisir une catégorie"
+      />
 
       <div className="text-center pt-2">
         <button
