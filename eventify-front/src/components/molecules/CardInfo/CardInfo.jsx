@@ -5,6 +5,18 @@ import { toggleUserEvent } from "../../../services/api";
 const CardInfo = ({ eventId, title, description, date, category, localisation, image, events, setEvents }) => {
     const [isRegistered, setIsRegistered] = useState(false);
 
+    // Déterminer la couleur de la carte en fonction de la proximité de l'événement
+    const getEventColor = (eventDate) => {
+        const now = new Date();
+        const eventDay = new Date(eventDate);
+        const diffTime = eventDay - now;
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+        if (diffDays <= 2) return "bg-red-500 text-white"; // Urgent : Événement dans 2 jours ou moins
+        if (diffDays <= 7) return "bg-yellow-500 text-black"; // Rappel : Événement dans 7 jours ou moins
+        return "bg-white text-black"; // Normal : Événement lointain
+    };
+
     useEffect(() => {
         const user = JSON.parse(localStorage.getItem("user"));
         if (user && Array.isArray(events)) {
@@ -35,10 +47,10 @@ const CardInfo = ({ eventId, title, description, date, category, localisation, i
     };
 
     return (
-        <Card className="w-full max-w-md min-w-[400px] min-h-[400px] flex flex-col justify-between">
+        <Card className={`max-w-md w-[500px] h-[400px] flex flex-col justify-between ${getEventColor(date)}`}>
             <div className="flex flex-col">
                 <div className="flex justify-between items-center mb-2">
-                    {image && <img src={`http://localhost:3001/uploads/${image}`} alt={title} className="size-28 rounded-lg" />                }
+                    {image && <img src={`http://localhost:3001/uploads/${image}`} alt={title} className="size-28 rounded-lg" />}
                     <Text className="text-subtitle text-gray-600">{date}</Text>
                 </div>
                 <Title className="text-lg font-bold text-primary-500 mb-2">{title}</Title>
