@@ -4,31 +4,41 @@ import { CardInfo } from "../../molecules";
 
 const Rappel = ({ events, setEvents }) => {
     const [rappelEvents, setRappelEvents] = useState([]);
+    const [deletedEventIds, setDeletedEventIds] = useState([]);
 
     useEffect(() => {
         const now = new Date();
         const upcomingEvents = events.filter(event => {
             const eventDate = new Date(event.date);
             const diffDays = Math.ceil((eventDate - now) / (1000 * 60 * 60 * 24));
-            return diffDays >= 0 && diffDays <= 7;
+            return diffDays >= 0 && diffDays <= 7 && !deletedEventIds.includes(event.id);
         });
 
         setRappelEvents(upcomingEvents);
-    }, [events]);
+    }, [events, deletedEventIds]);
 
-    if (rappelEvents.length === 0) return null; // Ne rien afficher si aucun rappel
+    const removeRappel = (eventId) => {
+        setDeletedEventIds([...deletedEventIds, eventId]); // Ajouter à la liste des événements supprimés
+        setRappelEvents(rappelEvents.filter(event => event.id !== eventId));
+    };
+
+    const clearAllRappels = () => {
+        setDeletedEventIds([...deletedEventIds, ...rappelEvents.map(event => event.id)]); // Stocker les ID supprimés
+        setRappelEvents([]); 
+    };
+
+    if (rappelEvents.length === 0) return null;
 
     return (
-        <div className="w-screen bg-yellow-100 p-4 rounded-lg shadow-md mb-6">
+        <div className="bg-yellow-100 p-6 rounded-lg shadow-md mb-6">
             <div className="flex justify-between items-center mb-2">
                 <Title className="text-lg font-bold text-yellow-700">📌 Rappels</Title>
-                <Button onClick={() => setRappelEvents([])} className="bg-red-500 text-white px-4 py-2 rounded-md">
+                <Button onClick={clearAllRappels} className="bg-red-500 text-white px-4 py-2 rounded-md">
                     ✖ Tout supprimer
                 </Button>
             </div>
 
-            {/* Conteneur scrollable */}
-            <div className={`flex flex-col overflow-x-auto ${rappelEvents.length > 3 ? "pb-2" : ""}`}>
+            <div className="overflow-x-auto">
                 <div className="flex gap-x-6 px-4">
                     {rappelEvents.map((event) => (
                         <div key={event.id} className="w-[500px] flex-shrink-0 relative">

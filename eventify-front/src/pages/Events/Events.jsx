@@ -65,7 +65,7 @@ const Events = () => {
     }, [searchTerm, selectedCategory, events, sortOrder, showUserEvents]);
 
     return (
-        <div className="p-4">
+        <div className="p-4 w-full">
             {user && (
                 <div className="flex justify-between mb-4">
                     <Button
