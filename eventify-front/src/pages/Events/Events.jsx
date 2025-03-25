@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import { searchEvents, getAllEvents, getLoggedUser } from "../../services/api";
 import { Event, FiltersBar, Rappel } from "../../components/organisms";
 import { Button } from "../../components/atoms";
+import { useNavigate } from "react-router-dom";
 
 const Events = () => {
     const { logout } = useContext(AuthContext); // Récupérer la fonction logout
@@ -13,7 +14,7 @@ const Events = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [showUserEvents, setShowUserEvents] = useState(false);
-
+    const navigate = useNavigate();
     const user = getLoggedUser(); // Récupérer l'utilisateur connecté
 
     useEffect(() => {
@@ -43,6 +44,11 @@ const Events = () => {
     const getUserEvents = () => {
         if (!user) return [];
         return events.filter(event => event.participants.includes(user.id));
+    };
+
+    const handleLogout = () => {
+        logout();  // Déconnexion
+        navigate("/"); // Redirection vers la page de connexion
     };
 
     useEffect(() => {
@@ -75,10 +81,7 @@ const Events = () => {
                         {showUserEvents ? "Voir tous les événements" : "Voir mes événements"}
                     </Button>
 
-                    <Button
-                        onClick={() => logout()}
-                        className="px-4 py-2 bg-red-500 text-white rounded-md"
-                    >
+                    <Button onClick={handleLogout} className="px-4 py-2 bg-red-500 text-white rounded-md">
                         Déconnexion
                     </Button>
                 </div>
