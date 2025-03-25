@@ -1,7 +1,9 @@
 import React, { createContext, useState, useEffect } from "react";
 import { getLoggedUser, loginUser, logoutUser } from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
 export const AuthContext = createContext(null);
+
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -26,8 +28,7 @@ const AuthProvider = ({ children }) => {
         logoutUser();
         setUser(null);
         setIsAuthenticated(false);
-        navigate("/"); // Redirection après déconnexion
-    };
+    };    
 
     return (
         <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
