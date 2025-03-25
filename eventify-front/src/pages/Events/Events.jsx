@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { searchEvents, getAllEvents, getLoggedUser } from "../../services/api";
-import { Event, FiltersBar } from "../../components/organisms";
+import { Event, FiltersBar, Rappel } from "../../components/organisms";
 import { Button } from "../../components/atoms";
 
 const Events = () => {
@@ -16,7 +16,6 @@ const Events = () => {
 
     const user = getLoggedUser(); // Récupérer l'utilisateur connecté
 
-    // Charger tous les événements au montage
     useEffect(() => {
         const fetchEvents = async () => {
             try {
@@ -33,7 +32,6 @@ const Events = () => {
         fetchEvents();
     }, []);
 
-    // Fonction pour trier les événements par date
     const sortEventsByDate = (events, order) => {
         return [...events].sort((a, b) => {
             const dateA = new Date(a.date);
@@ -42,26 +40,21 @@ const Events = () => {
         });
     };
 
-    // Fonction pour récupérer les événements auxquels l'utilisateur est inscrit
     const getUserEvents = () => {
         if (!user) return [];
         return events.filter(event => event.participants.includes(user.id));
     };
 
-    // Fonction pour filtrer et trier les événements
     useEffect(() => {
         const filterAndSortEvents = async () => {
             try {
                 const eventList = showUserEvents ? getUserEvents() : events;
-
                 let filtered = eventList;
 
-                // Appliquer la recherche et le filtre catégorie
                 if (searchTerm || selectedCategory) {
                     filtered = await searchEvents(searchTerm, selectedCategory);
                 }
 
-                // Appliquer le tri par date après le filtrage
                 setFilteredEvents(sortEventsByDate(filtered, sortOrder));
             } catch (error) {
                 console.error("Erreur lors du filtrage :", error);
@@ -72,7 +65,7 @@ const Events = () => {
     }, [searchTerm, selectedCategory, events, sortOrder, showUserEvents]);
 
     return (
-        <div className="p-4">
+        <div className="p-4 w-full">
             {user && (
                 <div className="flex justify-between mb-4">
                     <Button
@@ -101,6 +94,7 @@ const Events = () => {
                 setEvents={setEvents}
             />
 
+            <Rappel events={events} setEvents={setEvents} />
             <div className="flex flex-wrap justify-center gap-6 p-6">
                 {loading ? (
                     <p>Loading...</p>
