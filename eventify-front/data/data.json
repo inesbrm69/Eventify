@@ -358,7 +358,9 @@
       "date": "2025-03-25",
       "localisation": "Paris",
       "image": "echec1.jpg",
-      "participants": [],
+      "participants": [
+        "1"
+      ],
       "category": "Jeux"
     },
     {
