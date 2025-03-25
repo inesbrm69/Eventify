@@ -13,7 +13,8 @@ export const loginUser = (user) => {
 };
 
 export const getLoggedUser = () => {
-  return JSON.parse(localStorage.getItem("user"));
+  const user = localStorage.getItem("user");
+  return user ? JSON.parse(user) : null;
 };
 
 // Déconnexion
@@ -25,7 +26,6 @@ export const logoutUser = () => {
 export const getAllUsers = async () => {
   try {
     const response = await api.get("/users");
-    console.log("Utilisateurs récupérés :", response.data); // Vérifie ce que l'API retourne
     return response.data;
   } catch (error) {
     console.error("Erreur lors de la récupération des utilisateurs :", error);

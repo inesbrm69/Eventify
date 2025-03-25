@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "../../atoms/index";
 import { loginUser, getLoggedUser, logoutUser, getAllUsers } from "../../../services/api";
+import { useNavigate } from "react-router-dom";
 
 const Form = ({ setUser }) => {
     const [users, setUsers] = useState([]);
     const loggedUser = getLoggedUser();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUsers = async () => {
             try {
                 const userList = await getAllUsers();
-                console.log("Utilisateurs chargés :", userList);
                 setUsers(userList);
             } catch (error) {
                 console.error("Erreur lors du chargement des utilisateurs", error);
@@ -23,11 +24,13 @@ const Form = ({ setUser }) => {
     const handleLogin = (user) => {
         loginUser(user);
         setUser(user);
+        navigate("/listeEvent");
     };
 
     const handleLogout = () => {
         logoutUser();
         setUser(null);
+        navigate("/");
     };
 
     return (
