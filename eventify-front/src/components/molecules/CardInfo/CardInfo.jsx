@@ -46,7 +46,7 @@ const CardInfo = ({ eventId, title, description, date, category, localisation, i
     };
 
     return (
-        <Card className="max-w-md w-[500px] h-[400px] flex flex-col justify-between text-black">
+        <Card className="max-w-[500px] h-[400px] flex flex-col justify-between text-black">
             <div className="flex justify-between items-center mb-2">
                 {image && <img src={`http://localhost:3001/uploads/${image}`} alt={title} className="size-28 rounded-lg" />}
                 <Text className="text-subtitle text-gray-600">{date}</Text>
